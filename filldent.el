@@ -2,7 +2,7 @@
 
 ;; Copyright (C) 2021 Case Duckworth
 
-;; Author: Case Duckworth <acdw@acdw.ne
+;; Author: Case Duckworth <acdw@acdw.net>
 
 ;;; License:
 
