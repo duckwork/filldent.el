@@ -1,0 +1,25 @@
+#+title: Filldent
+#+subtitle: for filling and indenting
+#+author: Case Duckworth
+
+Sometimes you want to fill, sometimes you want to indent.  This package tries
+to figure out which you want and does that one.
+
+I'd recommend binding =M-q= to =filldent-dwim= and it should … /just work/.
+
+You can also tell =filldent= to decide whether to fill or indent based on mode,
+with =filldent-fill-modes= and =filldent-indent-modes=.  Uh, and you can set the
+default using =filldent-default=.
+
+* Contributing
+
+Open a Pull Request!  Send me an email!  Do the open source thing!
+
+* License
+
+Everyone is permitted to do whatever with this software, without limitation.
+This software comes without any warranty whatsoever, but with two pieces of
+advice:
+
+- Be kind to yourself.
+- Make good choices.
