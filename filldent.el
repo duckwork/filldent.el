@@ -65,6 +65,7 @@ or `indent'."
       'indent)
      (t filldent-default))))
 
+;;;###autoload
 (defun filldent-region (beg end &optional arg)
   "Filldent region from BEG to END.
 Optional prefix ARG determines whether to justify the text (when
@@ -75,6 +76,7 @@ indenting)."
     ('indent (indent-region beg end arg))
     ('fill (fill-paragraph arg t))))
 
+;;;###autoload
 (defun filldent-paragraph (&optional arg)
   "Filldent defun or paragraph at point.
 Optional prefix ARG determines whether to justify the text (when
@@ -87,6 +89,7 @@ indenting)."
                (indent-region (region-beginning) (region-end) arg)))
     ('fill (fill-paragraph arg nil))))
 
+;;;###autoload
 (defun filldent-dwim (&optional arg)
   "Filldent defun or paragraph at point, or region, if it's active.
 Optional prefix ARG determines whether to justify the text (when
