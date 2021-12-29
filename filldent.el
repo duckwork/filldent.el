@@ -9,9 +9,7 @@
 ;; Everyone is permitted to do whatever with this software, without
 ;; limitation.  This software comes without any warranty whatsoever,
 ;; but with two pieces of advice:
-
 ;; - Be kind to yourself.
-
 ;; - Make good choices.
 
 ;;; Commentary:
@@ -44,7 +42,9 @@ Recommended: prog-ish modes."
 
 (defcustom filldent-default 'fill
   "What to do if confused.
-If a mode doesn't derive from any of the modes in `filldent-fill-modes' or `filldent-indent-modes', this defines the default thing to do.
+If a mode doesn't derive from any of the modes in
+`filldent-fill-modes' or `filldent-indent-modes', this defines
+the default thing to do.
 
 Possible values are `fill' and `indent'."
   :type '(choice (const :tag "Fill" 'fill)
@@ -82,7 +82,7 @@ indenting)."
 Optional prefix ARG determines whether to justify the text (when
 filling) or the number of spaces to indent the text (when
 indenting)."
-  (interactive "P")
+  (interactive "*P")
   (pcase (filldent--type)
     ('indent (save-excursion
                (mark-defun)
@@ -95,7 +95,7 @@ indenting)."
 Optional prefix ARG determines whether to justify the text (when
 filling) or the number of spaces to indent the text (when
 indenting)."
-  (interactive "P")
+  (interactive "*P")
   (if (region-active-p)
       (filldent-region (region-beginning) (region-end) arg)
     (filldent-paragraph arg)))
