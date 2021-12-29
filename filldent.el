@@ -100,5 +100,26 @@ indenting)."
       (filldent-region (region-beginning) (region-end) arg)
     (filldent-paragraph arg)))
 
+;;;###autoload
+(defun filldent-fill-then-indent-dwim (&optional arg)
+  "Fill and indent region if active, or current defun/paragraph.
+Optional ARG causes the paragraph to \"unfill.\""
+  ;; I include this function as an alternative to the "smarter" `filldent-dwim',
+  ;; which I used for a bit before making `filldent-paragraph' smarter.
+  ;;
+  ;; Possible TODO: make calling this twice in a row restore the buffer how it
+  ;; was.
+  (interactive "*P")
+  (let ((fill-column (if arg most-positive-fixnum fill-column)))
+    (if (region-active-p)
+        (progn
+          (fill-region (region-beginning) (region-end))
+          (indent-region (region-beginning) (region-end)))
+      (progn
+        (fill-paragraph)
+        (save-excursion
+          (mark-defun)
+          (indent-region (region-beginning) (region-end)))))))
+
 (provide 'filldent)
 ;;; filldent.el ends here
