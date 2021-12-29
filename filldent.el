@@ -1,8 +1,11 @@
-;;; filldent.el --- fill or indent                  -*- lexical-binding: t; -*-
+;;; filldent.el --- Fill or indent                  -*- lexical-binding: t; -*-
 
 ;; Copyright (C) 2021 Case Duckworth
 
 ;; Author: Case Duckworth <acdw@acdw.net>
+;; URL: https://github.com/duckwork/filldent.el
+;; Package-Version: 1.0.0
+;; Package-Requires: ((emacs "24.1"))
 
 ;;; License:
 
@@ -14,9 +17,9 @@
 
 ;;; Commentary:
 
-;; From a converstion in #emacs, where someone was confused about M-q
-;; vs. C-M-\.  I realized that we rarely want to indent prose, or fill
-;; programming, so let's do a dwim-style thing.  That's filldent.
+;; From a converstion in #emacs, where someone was confused about M-q vs.
+;; C-M-\.  I realized that we rarely want to indent prose, or fill programming,
+;; so let's do a dwim-style thing.  That's filldent.
 
 ;; Apparently `paredit' already has a binding like this, set to M-q.  Very
 ;; interesting.
