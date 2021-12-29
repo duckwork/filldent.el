@@ -50,6 +50,20 @@ Possible values are `fill' and `indent'."
   :type '(choice (const :tag "Fill" 'fill)
                  (const :tag "Indent" 'indent)))
 
+(defcustom filldent-fill-comments-and-strings t
+  "Whether to fill comments and strings in `indent' modes.
+This option only takes effect when calling `filldent-paragraph',
+because a region might span multiple syntactic elements.
+
+When t, if the point is on a comment or string in an `indent'
+mode, instead of indenting the current defun, fill the current
+paragraph.  When nil, indent the current defun.
+
+This defaults to t to fulfill the principle of least-surprise, at
+least for the author."
+  :type '(choice (const :tag "Fill comments and strings" t)
+                 (const :tag "Indent the containing function" nil)))
+
 ;;; Functions
 
 (defun filldent--type (&optional buffer)
@@ -84,10 +98,14 @@ filling) or the number of spaces to indent the text (when
 indenting)."
   (interactive "*P")
   (pcase (filldent--type)
-    ('indent (save-excursion
-               (mark-defun)
-               (indent-region (region-beginning) (region-end) arg)))
-    ('fill (fill-paragraph arg nil))))
+    ('indent (if (and filldent-fill-comments-and-strings
+                      (or (nth 3 (syntax-ppss))
+                          (nth 4 (syntax-ppss))))
+                 (fill-paragraph arg)
+               (save-excursion
+                 (mark-defun)
+                 (indent-region (region-beginning) (region-end) arg))))
+    ('fill (fill-paragraph arg))))
 
 ;;;###autoload
 (defun filldent-dwim (&optional arg)
