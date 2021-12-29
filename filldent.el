@@ -74,7 +74,7 @@ indenting)."
   (interactive "*r\nP")
   (pcase (filldent--type)
     ('indent (indent-region beg end arg))
-    ('fill (fill-paragraph arg t))))
+    ('fill (fill-region beg end arg))))
 
 ;;;###autoload
 (defun filldent-paragraph (&optional arg)
