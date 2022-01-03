@@ -4,7 +4,7 @@
 
 ;; Author: Case Duckworth <acdw@acdw.net>
 ;; URL: https://github.com/duckwork/filldent.el
-;; Package-Version: 1.0.1
+;; Version: 1.0.1
 ;; Package-Requires: ((emacs "24.1"))
 
 ;; This program is free software; you can redistribute it and/or modify
@@ -22,7 +22,7 @@
 
 ;;; Commentary:
 
-;; From a converstion in #emacs, where someone was confused about M-q vs.
+;; From a conversation in #emacs, where someone was confused about M-q vs.
 ;; C-M-\.  I realized that we rarely want to indent prose, or fill programming,
 ;; so let's do a dwim-style thing.  That's filldent.
 
