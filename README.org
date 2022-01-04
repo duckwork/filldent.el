@@ -2,6 +2,8 @@
 #+subtitle: for filling and indenting
 #+author: Case Duckworth
 
+[[https://melpa.org/#/filldent][file:https://melpa.org/packages/filldent-badge.svg]]
+
 Sometimes you want to fill, sometimes you want to indent.  This package tries
 to figure out which you want and does that one.
 
@@ -10,6 +12,11 @@ I'd recommend binding =M-q= to =filldent-dwim= and it should … /just work/.
 You can also tell =filldent= to decide whether to fill or indent based on mode,
 with =filldent-fill-modes= and =filldent-indent-modes=.  Uh, and you can set the
 default using =filldent-default=.
+
+* Installing
+
+*filldent* is now on [[https://melpa.org/#/filldent][MELPA]]!  So you can install it using a properly-configured
+=package.el= or whatever other way you prefer.
 
 * Contributing
 
