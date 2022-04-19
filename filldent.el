@@ -147,5 +147,37 @@ Optional ARG causes the paragraph to \"unfill.\""
           (mark-defun)
           (indent-region (region-beginning) (region-end)))))))
 
+;;; Unfill commands
+;; basically filldent-modified versions of Steve Purcell's `unfill' library
+
+;;;###autoload
+(defun filldent-unfill-paragraph ()
+  "Replace newline chars in current paragraph by single spaces.
+This command does the inverse of `filldent-paragraph'."
+  (interactive)
+  (let ((fill-column most-positive-fixnum))
+    (call-interactively #'filldent-paragraph)))
+
+;;;###autoload
+(defun filldent-unfill-region (start end)
+  "Replace newline chars in region from START to END by single spaces.
+This command does the inverse of `filldent-region'."
+  (interactive "r")
+  (let ((fill-column most-positive-fixnum))
+    (filldent-region start end)))
+
+;;;###autoload
+(defun filldent-unfill-toggle (&optional arg)
+  "Toggle filldent/unfill of current paragraph, or active
+region. Optional prefix ARG is passed on to `filldent-dwim'."
+  (interactive "*P")
+  (let (deactivate-mark
+        (fill-column
+         (if (eq last-command this-command)
+             (progn (setq this-command nil)
+                    most-positive-fixnum)
+           fill-column)))
+    (call-interactively #'filldent-dwim)))
+
 (provide 'filldent)
 ;;; filldent.el ends here
