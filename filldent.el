@@ -171,8 +171,7 @@ This command does the inverse of `filldent-region'."
   "Toggle filldent/unfill of current paragraph, or active
 region. Optional prefix ARG is passed on to `filldent-dwim'."
   (interactive "*P")
-  (let (deactivate-mark
-        (fill-column
+  (let ((fill-column
          (if (eq last-command this-command)
              (progn (setq this-command nil)
                     most-positive-fixnum)
